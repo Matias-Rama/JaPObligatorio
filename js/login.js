@@ -54,8 +54,9 @@ document.getElementById("btnSignIn").addEventListener("click", function()
    if(email.value != "" && pass.value != "" && email.value.search("@") != -1)
       document.body.style.backgroundColor = "red";   
 
-   if(email.value != "" && pass.value != "" && email.value.search("@") != -1)
-      window.location.assign("index.html");
+   /* if(email.value != "" && pass.value != "" && email.value.search("@") != -1)
+       window.location.assign("index.html"); */
+   signOut();
 }); 
 
 document.getElementById("inputPassword").addEventListener("click",function(ev){ ev.target.style.borderColor = "grey"; });
