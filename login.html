@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+  <meta name="google-signin-client_id" content="974831283516-fitk9pmhv8soeq1p0n0nhv29i53umoee.apps.googleusercontent.com">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -43,6 +43,7 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 10px;
+      margin-top: 10px;
     }
 
     .form-control
@@ -70,7 +71,7 @@
   </div>
   <button class="btn btn-lg btn-primary btn-block" type="submit" id="btnSignIn">Sign in</button>
   
-  <div id="my-signin2"></div>
+  <div id="my-signin2 image"></div>
   <script>
     function onSuccess(googleUser) {
       console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
@@ -90,11 +91,11 @@
       });
     }
   </script>
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
   
   <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
   </form>
 
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>
