@@ -14,9 +14,8 @@ function showImagesGallery(array){
             </div>
         </div>
         `
-
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
+    document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
