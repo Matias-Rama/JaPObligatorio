@@ -33,6 +33,8 @@ function renderButton()
    });
 }
 
+signOut();
+
 document.getElementById("btnSignIn").addEventListener("click", function()
 {
    let email = document.getElementById("inputEmail");
@@ -54,9 +56,8 @@ document.getElementById("btnSignIn").addEventListener("click", function()
    if(email.value != "" && pass.value != "" && email.value.search("@") != -1)
       document.body.style.backgroundColor = "red";   
 
-   /* if(email.value != "" && pass.value != "" && email.value.search("@") != -1)
-       window.location.assign("index.html"); */
-   signOut();
+   if(email.value != "" && pass.value != "" && email.value.search("@") != -1)
+      window.location.assign("index.html");
 }); 
 
 document.getElementById("inputPassword").addEventListener("click",function(ev){ ev.target.style.borderColor = "grey"; });
