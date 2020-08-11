@@ -2,7 +2,7 @@
 function onSuccess(googleUser)
 {
    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-   window.location.assign("index.html");
+   /* window.location.assign("index.html"); */
 }
 
 function onFailure(error)
