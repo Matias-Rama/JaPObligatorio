@@ -33,8 +33,6 @@ function renderButton()
    });
 }
 
-signOut();
-
 document.getElementById("btnSignIn").addEventListener("click", function()
 {
    let email = document.getElementById("inputEmail");
