@@ -40,6 +40,18 @@ var getJSONData = function(url){
     });
 }
 
+if(!localStorage.getItem("flag"))
+  localStorage.setItem("flag", "true"); 
+    
+if(localStorage.getItem("flag") === "true")
+  window.location.assign("login.html");
+
+function logout()
+{
+  localStorage.flag = "true";
+  signOut();
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.

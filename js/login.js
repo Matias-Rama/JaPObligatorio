@@ -2,7 +2,8 @@
 function onSuccess(googleUser)
 {
    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-   /* window.location.assign("index.html"); */
+   localStorage.flag = "false";
+   window.location.assign("index.html");
 }
 
 function onFailure(error)
@@ -32,30 +33,22 @@ function renderButton()
    });
 }
 
-document.getElementById("btnSignIn").addEventListener("click", function()
+function signIn()
 {
    let email = document.getElementById("inputEmail");
    let pass = document.getElementById("inputPassword");
 
-   /* if(email.value != "")
-      document.body.style.backgroundColor = "red";
-   if(pass.value != "")
-      document.body.style.backgroundColor = "red";
-   if(email.value.search("@") != -1)
-      document.body.style.backgroundColor = "red"; */
-
-   if(pass.value == "")
+   if(pass.value.length === 0)
       pass.style.borderColor = "red";
    
-   if(email.value == "" || email.value.search("@") == -1)   
+   if(email.value.length === 0 || email.value.search("@") === -1)   
       email.style.borderColor = "red";
 
-   if(email.value != "" && pass.value != "" && email.value.search("@") != -1)
-      document.body.style.backgroundColor = "red";   
-
-   if(email.value != "" && pass.value != "" && email.value.search("@") != -1)
+   if(email.value.length > 0 && pass.value.length > 0 && email.value.search("@") !== -1){
+      localStorage.flag = "false";
       window.location.assign("index.html");
-}); 
+   }
+} 
 
 document.getElementById("inputPassword").addEventListener("click",function(ev){ ev.target.style.borderColor = "grey"; });
 
