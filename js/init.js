@@ -46,6 +46,14 @@ if(!localStorage.getItem("flag"))
 if(localStorage.getItem("flag") === "true")
   window.location.assign("login.html");
 
+function signOut()
+{
+  gapi.auth2.getAuthInstance().auth2.signOut().then(function()
+  {
+    console.log('User signed out.');
+  });
+}
+
 function logout()
 {
   localStorage.flag = "true";

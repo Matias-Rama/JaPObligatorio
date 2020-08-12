@@ -11,14 +11,6 @@ function onFailure(error)
    console.log(error);
 }
 
-function signOut()
-{
-   gapi.auth2.getAuthInstance().auth2.signOut().then(function()
-   {
-      console.log('User signed out.');
-   });
-}
-
 function renderButton()
 {
    gapi.signin2.render('my-signin2', 
@@ -38,13 +30,13 @@ function signIn()
    let email = document.getElementById("inputEmail");
    let pass = document.getElementById("inputPassword");
 
-   if(pass.value.length === 0)
+   if(!pass.value)
       pass.style.borderColor = "red";
    
-   if(email.value.length === 0 || email.value.search("@") === -1)   
+   if(!email.value || email.value.search("@") === -1)   
       email.style.borderColor = "red";
 
-   if(email.value.length > 0 && pass.value.length > 0 && email.value.search("@") !== -1){
+   if(email.value && pass.value && email.value.search("@") !== -1){
       localStorage.flag = "false";
       window.location.assign("index.html");
    }
