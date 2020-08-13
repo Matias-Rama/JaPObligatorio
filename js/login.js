@@ -36,9 +36,10 @@ function signIn()
    if(!email.value || email.value.search("@") === -1)   
       email.style.borderColor = "red";
 
-   if(email.value && pass.value && email.value.search("@") !== -1){
+   if(email.value && pass.value && email.value.search("@") != -1){
       localStorage.flag = "false";
       window.location.assign("index.html");
+      document.body.style.backgroundColor = "red";
    }
 } 
 
