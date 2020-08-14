@@ -33,10 +33,10 @@ function signIn()
    if(pass.value == "")
       pass.style.borderColor = "red";
    
-   if(email.value == "" || email.value.search("@") == -1)   
+   if(email.value == "")   
       email.style.borderColor = "red";
 
-   if(email.value != "" && pass.value != "" && email.value.search("@") != -1){
+   if(email.value != "" && pass.value != ""){
       localStorage.flag = "false";
       /* document.body.style.backgroundColor = "red"; */
       window.location.assign("index.html");
