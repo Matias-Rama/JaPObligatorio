@@ -3,6 +3,7 @@ function onSuccess(googleUser)
 {
    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
    localStorage.flag = "false";
+   window.location.assign("index.html");
 }
 
 function onFailure(error)
@@ -26,7 +27,10 @@ function renderButton()
 
 function signOut()
 {
-   gapi.auth2.signOut();
+   var auth2 = gapi.auth2.getAuthInstance();
+   auth2.signOut().then(function () {
+      console.log('User signed out.');
+   });
 }
 
 function signIn()
@@ -41,7 +45,7 @@ function signIn()
       email.style.borderColor = "red";
 
       localStorage.flag = "false";
-      window.location.replace("/index.html");
+      window.location.assign("index.html");
    if(email.value != "" && pass.value != "" && email.value.search("@") != -1){
       /* document.body.style.backgroundColor = "red"; */
    }
