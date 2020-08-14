@@ -42,7 +42,7 @@ var getJSONData = function(url){
 
 function signOut()
 {
-  gapi.auth2.signOut().then(function () {
+  gapi.auth2.getAuthInstance().auth2.signOut().then(function () {
     console.log('User signed out.');
   });
 }
