@@ -38,7 +38,7 @@ function signIn()
 
    if(email.value != "" && pass.value != "" && email.value.search("@") != -1){
       localStorage.flag = "false";
-      document.body.style.backgroundColor = "red";
+      /* document.body.style.backgroundColor = "red"; */
       window.location.assign("index.html");
    }
 } 
