@@ -27,6 +27,7 @@ function renderButton()
 
 function signOut()
 {
+   gapi.auth2.init();
    gapi.auth2.getAuthInstance().auth2.signOut().then(function () {
       console.log('User signed out.');
    });
