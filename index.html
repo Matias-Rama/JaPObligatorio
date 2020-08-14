@@ -13,7 +13,13 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <script src="js/init.js"></script>
+    <script>
+      if(!localStorage.getItem("flag"))
+        localStorage.setItem("flag", "true"); 
+          
+      if(localStorage.getItem("flag") === "true")
+        window.location.assign("login.html");
+    </script>
   </head>
 
   <body>
@@ -109,6 +115,7 @@
       </div>
     </footer>
 
+    <script src="js/init.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
   </body>

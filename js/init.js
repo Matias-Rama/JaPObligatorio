@@ -40,20 +40,6 @@ var getJSONData = function(url){
     });
 }
 
-if(!localStorage.getItem("flag"))
-  localStorage.setItem("flag", "true"); 
-    
-if(localStorage.getItem("flag") === "true")
-  window.location.assign("login.html");
-
-function signOut()
-{
-  gapi.auth2.getAuthInstance().auth2.signOut().then(function()
-  {
-    console.log('User signed out.');
-  });
-}
-
 function logout()
 {
   localStorage.flag = "true";
