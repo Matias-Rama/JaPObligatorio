@@ -29,13 +29,15 @@
     }
 
     .signin {
+      background-color: #f1f1f1;
       width: 100%;
       max-width: 340px;
       align-items: center;
       justify-content: center;
       padding: 15px;
       margin: auto;
-      border-style: groove;
+      border-radius: 15px;
+      border-style: inherit;
     }
 
     .image
@@ -78,14 +80,13 @@
     </div>
     <button class="btn btn-lg btn-primary btn-block" onclick="javascript:signIn();">Sign in</button>
     
-    <p>──────────── Or ────────────</p>
+    <p style="margin-top: 10px;">──────────── Or ────────────</p>
   
     <div class="image">
       <div id="my-signin2"></div>
     </div>
   
     <p class="mt-5 mb-3 text-muted">&copy; 2020 Matias Rama</p>
-    <a href="#" onclick="javascript:signOut();">Sign out</a>
   </form>
 
   <script src="js/login.js"></script>

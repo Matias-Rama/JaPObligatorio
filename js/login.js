@@ -36,10 +36,10 @@ function signIn()
    if(email.value == "" || email.value.search("@") == -1)   
       email.style.borderColor = "red";
 
-      localStorage.flag = "false";
-      window.location.assign("index.html");
    if(email.value != "" && pass.value != "" && email.value.search("@") != -1){
-      /* document.body.style.backgroundColor = "red"; */
+      localStorage.flag = "false";
+      document.body.style.backgroundColor = "red";
+      window.location.assign("index.html");
    }
 } 
 
