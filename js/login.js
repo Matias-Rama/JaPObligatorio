@@ -1,7 +1,6 @@
 
 function onSuccess(googleUser)
 {
-   alert('Logged in as: ' + googleUser.getBasicProfile().getName());
    localStorage.usuario = googleUser.getBasicProfile().getName();
    localStorage.pass = "Google no me da la contraseña :("
    window.location.assign("index.html");
@@ -31,22 +30,21 @@ function signIn()
    let email = document.getElementById("inputEmail");
    let pass = document.getElementById("inputPassword");
 
-   if(pass.value == "")
-      pass.style.borderColor = "red";
-   
-   if(email.value == "")   
-      email.style.borderColor = "red";
-
    if(email.value != "" && pass.value != ""){
-      localStorage.usuario = email.value;
-      localStorage.pass = pass.value;
+      if(!localStorage.getItem("usuario"))
+         localStorage.setItem("usuario", email.value);
+      else
+         localStorage.usuario = email.value;
+
+      if(!localStorage.getItem("pass"))
+         localStorage.setItem("pass", email.pass);
+      else
+         localStorage.pass = pass.value;
+
       window.location.assign("index.html");
    }
-} 
-
-document.getElementById("inputPassword").addEventListener("click",function(ev){ ev.target.style.borderColor = "grey"; });
-
-document.getElementById("inputEmail").addEventListener("click", function(ev){ ev.target.style.borderColor = "grey"; });
+      /* alert("Debe ingresar un nombre de usuario y contraseña.") */
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los

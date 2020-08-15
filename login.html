@@ -22,20 +22,20 @@
   <div class="image">
     <img src="img/login.png" alt="" width="850" height="420">
   </div>
-  <form class="signin shadow-lg">
+  <form class="signin shadow-lg" action="index.html">
     <h1 class="h3 mb-3 font-weight-normal">Please, sign in</h1>
 
     <div class="name-form">
-      <input type="text" id="inputEmail" autocomplete="off" required>
+      <input type="text" id="inputEmail" class="inText" autocomplete="off" required>
       <label for="inputEmail" class="label-name">
-        <span class="content-name">User name</span>
+        <span id="spanUserName" class="content-name">User name</span>
       </label>
     </div>
 
     <div class="name-form">
-      <input type="password" id="inputPassword" autocomplete="off" required>
+      <input type="password" id="inputPassword" class="inText" autocomplete="off" required>
       <label for="inputPassword" class="label-name">
-        <span class="content-name">Password</span>
+        <span id="spanPassword" class="content-name">Password</span>
       </label>
     </div>
 
@@ -44,7 +44,7 @@
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" onclick="javascript:signIn();">Sign in</button>
+    <button id="btnSignIn" class="btn btn-lg btn-primary btn-block" type="submit" onclick="javascript:signIn();">Sign in</button>
     
     <p style="margin-top: 10px;">──────────── Or ────────────</p>
   
