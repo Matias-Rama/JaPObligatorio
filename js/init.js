@@ -44,7 +44,7 @@ function signOut()
 {
   var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {
-    console.log('User signed out.');
+    alert('User signed out.');
   });
 }
 
@@ -58,7 +58,9 @@ function logout()
 {
   localStorage.usuario = "";
   localStorage.pass = "";
-  signOut();
+  var auth2 = gapi.auth2.getAuthInstance();
+  if(auth2.isSignedIn.get())
+    signOut();
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de

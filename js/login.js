@@ -1,7 +1,7 @@
 
 function onSuccess(googleUser)
 {
-   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+   alert('Logged in as: ' + googleUser.getBasicProfile().getName());
    localStorage.usuario = googleUser.getBasicProfile().getName();
    localStorage.pass = "Google no me da la contraseña :("
    window.location.assign("index.html");
@@ -40,7 +40,6 @@ function signIn()
    if(email.value != "" && pass.value != ""){
       localStorage.usuario = email.value;
       localStorage.pass = pass.value;
-      /* document.body.style.backgroundColor = "red"; */
       window.location.assign("index.html");
    }
 } 

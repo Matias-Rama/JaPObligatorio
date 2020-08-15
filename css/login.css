@@ -1,0 +1,111 @@
+html, body
+{
+   height: 100%;
+}
+
+body 
+{
+   display: -ms-flexbox;
+   display: flex;
+   -ms-flex-align: center;
+   padding-top: 40px;
+   padding-bottom: 40px;
+   background-color: #f5f5f5;
+}
+
+.signin 
+{
+   background-color: #f1f1f1;
+   width: 100%;
+   max-width: 340px;
+   min-width: 340px;
+   align-items: center;
+   justify-content: center;
+   padding: 15px;
+   margin: auto;
+   border-radius: 15px;
+   border-style: inherit;
+}
+
+.image
+{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 10px;
+   margin-top: 10px;
+   margin-left: 10px;
+}
+
+.name-form
+{
+   width: 100%;
+   height: 55px;
+   position: relative;
+   overflow: hidden;
+   margin-bottom: 10px;
+}
+
+.name-form input
+{
+   background-color: #f1f1f1;
+   font-size: 17px;
+   /* El tamaño del input es el del name-form */
+   width: 100%;
+   height: 100%;
+   /* Movemos hacia abajo el lugar de escritura del input */
+   padding-top: 10px;
+   /* Quitamos el borde y el outline*/
+   border: none;
+   outline: none;
+}
+ /* Para poner el label en la esquina superior del input */
+.name-form label
+{
+   position: absolute;
+   bottom: 0px;
+   left: 0%;
+   width: 100%;
+   height: 100%;
+   /* para que te seleccione el input caundo lo clickees */
+   pointer-events: none;
+   border-bottom: 1px solid black;
+}
+
+/* label::after inserta contenido despues de cada label */
+.name-form label::after
+{
+   content: "";
+   position: absolute;
+   left: 0px;
+   bottom: -1px;
+   height: 100%;
+   width: 100%;
+   border-bottom: 3px solid #5fa8d3;
+   transform: translateX(-101%);
+   transition: transform 0.3s ease;
+}
+
+.content-name
+{
+   position: absolute;
+   bottom: 0px;
+   left: 0px;
+   transition: all 0.3s ease;
+}
+
+/* input:facus da estilo a los inputs al ser el foco de atencion 
+   input:valid da estilo a los inputs cuyo valor sea valido */
+.name-form input:focus + .label-name .content-name,
+.name-form input:valid + .label-name .content-name
+{
+   transform: translateY(-150%);
+   font-size: 14px;
+   color: #5fa8d3;
+}
+
+.name-form input:focus + .label-name::after, 
+.name-form input:valid + .label-name::after
+{
+   transform: translateX(0%);
+}
