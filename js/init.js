@@ -56,7 +56,8 @@ function onLoad() {
 
 function logout()
 {
-  localStorage.flag = "true";
+  localStorage.usuario = "";
+  localStorage.pass = "";
   signOut();
 }
 

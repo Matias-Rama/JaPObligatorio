@@ -15,10 +15,13 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <script>
-      if(!localStorage.getItem("flag"))
-        localStorage.setItem("flag", "true"); 
+      if(!localStorage.getItem("usuario"))
+        localStorage.setItem("usuario", "");
+
+      if(!localStorage.getItem("pass"))
+        localStorage.setItem("pass", ""); 
           
-      if(localStorage.getItem("flag") === "true")
+      if(localStorage.getItem("usuario") === "" && localStorage.getItem("pass") === "")
         window.location.assign("login.html");
     </script>
   </head>

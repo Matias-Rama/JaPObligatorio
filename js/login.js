@@ -2,7 +2,8 @@
 function onSuccess(googleUser)
 {
    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-   localStorage.flag = "false";
+   localStorage.usuario = googleUser.getBasicProfile().getName();
+   localStorage.pass = "Google no me da la contraseña :("
    window.location.assign("index.html");
 }
 
@@ -27,17 +28,18 @@ function renderButton()
 
 function signIn()
 {
-   let email = document.getElementById("inputEmail");
-   let pass = document.getElementById("inputPassword");
+   let email = document.getElementById("inputEmail").value;
+   let pass = document.getElementById("inputPassword").value;
 
-   if(pass.value == "")
+   if(pass == "")
       pass.style.borderColor = "red";
    
-   if(email.value == "")   
+   if(email == "")   
       email.style.borderColor = "red";
 
-   if(email.value != "" && pass.value != ""){
-      localStorage.flag = "false";
+   if(email != "" && pass != ""){
+      localStorage.usuario = email;
+      localStorage.pass = pass;
       /* document.body.style.backgroundColor = "red"; */
       window.location.assign("index.html");
    }
