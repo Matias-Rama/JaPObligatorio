@@ -28,18 +28,18 @@ function renderButton()
 
 function signIn()
 {
-   let email = document.getElementById("inputEmail").value;
-   let pass = document.getElementById("inputPassword").value;
+   let email = document.getElementById("inputEmail");
+   let pass = document.getElementById("inputPassword");
 
-   if(pass == "")
+   if(pass.value == "")
       pass.style.borderColor = "red";
    
-   if(email == "")   
+   if(email.value == "")   
       email.style.borderColor = "red";
 
-   if(email != "" && pass != ""){
-      localStorage.usuario = email;
-      localStorage.pass = pass;
+   if(email.value != "" && pass.value != ""){
+      localStorage.usuario = email.value;
+      localStorage.pass = pass.value;
       /* document.body.style.backgroundColor = "red"; */
       window.location.assign("index.html");
    }
