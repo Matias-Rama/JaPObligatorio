@@ -43,7 +43,6 @@ function signIn()
 
       window.location.assign("index.html");
    }
-      /* alert("Debe ingresar un nombre de usuario y contraseña.") */
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
