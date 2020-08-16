@@ -19,40 +19,41 @@
 </head>
 
 <body class="text-center">
-  <div class="image">
-    <img src="img/login.png" alt="" width="850" height="420">
-  </div>
-  <form class="signin shadow-lg" action="index.html">
-    <h1 class="h3 mb-3 font-weight-normal">Please, sign in</h1>
-
-    <div class="name-form">
-      <input type="text" id="inputEmail" class="inText" autocomplete="off" required>
-      <label for="inputEmail" class="label-name">
-        <span id="spanUserName" class="content-name">User name</span>
-      </label>
-    </div>
-
-    <div class="name-form">
-      <input type="password" id="inputPassword" class="inText" autocomplete="off" required>
-      <label for="inputPassword" class="label-name">
-        <span id="spanPassword" class="content-name">Password</span>
-      </label>
-    </div>
-
-    <div class="checkbox mb-3" style="margin-top: 10px;">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button id="btnSignIn" class="btn btn-lg btn-primary btn-block" type="submit" onclick="javascript:signIn();">Sign in</button>
-    
-    <p style="margin-top: 10px;">──────────── Or ────────────</p>
-  
+  <form class="signin" action="index.html">
     <div class="image">
-      <div id="my-signin2"></div>
+      <h1 class="h2 mb-3"> <b>Please, sign in</b> </h1>
+      <img src="img/login.png" alt="" width="300" height="  ">
     </div>
-  
-    <p class="mt-5 mb-3 text-muted">&copy; 2020 Matias Rama</p>
+    <div style="max-width: 299px;">
+      <div class="name-form">
+        <input type="text" id="inputEmail" class="inText" autocomplete="off" required>
+        <label for="inputEmail" class="label-name">
+          <span id="spanUserName" class="content-name">User name</span>
+        </label>
+      </div>
+
+      <div class="name-form">
+        <input type="password" id="inputPassword" class="inText" autocomplete="off" required>
+        <label for="inputPassword" class="label-name">
+          <span id="spanPassword" class="content-name">Password</span>
+        </label>
+      </div>
+
+      <div class="checkbox mb-3" style="margin-top: 10px;">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button id="btnSignIn" class="btn btn-lg btn-primary btn-block" type="submit" onclick="javascript:signIn();">Sign in</button>
+      
+      <p style="margin-top: 10px;">──────────── Or ────────────</p>
+    
+      <div class="image" style="margin-left: 50px;">
+        <div id="my-signin2"></div>
+      </div>
+    
+      <p class="mt-5 mb-3 text-muted">&copy; 2020 Matias Rama</p>
+    </div>
   </form>
 
   <script src="js/login.js"></script>
