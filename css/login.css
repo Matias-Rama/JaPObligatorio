@@ -1,16 +1,4 @@
 
-body 
-{
-   display: -ms-flexbox;
-   display: flex;
-   -ms-flex-align: center;
-   padding-top: 100px;
-   padding-bottom: 40px;
-   background-position-x: 50%;
-   background-position-y: 30%;
-   background-size: 100%;
-}
-
 h1
 {
    font-family: sans-serif;
