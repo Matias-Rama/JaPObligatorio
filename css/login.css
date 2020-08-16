@@ -6,7 +6,9 @@ body
    -ms-flex-align: center;
    padding-top: 100px;
    padding-bottom: 40px;
-   background-repeat: no-repeat;
+   background-position-x: 50%;
+   background-position-y: 30%;
+   background-size: cover;
 }
 
 h1
