@@ -106,3 +106,23 @@ h1
 {
    transform: translateX(0%);
 }
+
+form
+{
+   animation-name: transition-fade;
+   animation-duration: 1s;
+}
+
+@keyframes transition-fade
+{
+   from 
+   {
+      transform: translateX(40%);
+      opacity: 0%;
+   }
+   to 
+   {
+      transform: translateX(0);
+      opacity: 100%;
+   }
+}
