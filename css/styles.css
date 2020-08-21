@@ -140,7 +140,7 @@ a.custom-card:hover {
   color: orange;
 }
 
-nav a:link
+.navLink:link
 {
   text-decoration:none;
   opacity: 50%;
