@@ -52,6 +52,11 @@ function onLoad() {
   gapi.load('auth2', function() {
     gapi.auth2.init();
   });
+  var auth2 = gapi.auth2.getAuthInstance();
+  if(auth2.isSignedIn.get())
+    document.getElementById("navbarDropdownMenuLink-4").innerHTML = `<i class="fas fa-user navLink" style="color: white;"></i> ${auth2.currentUser.get().getBasicProfile().getGivenName()}`;
+  else if(localStorage.getItem("usuario"))
+    document.getElementById("navbarDropdownMenuLink-4").innerHTML = `<i class="fas fa-user navLink" style="color: white;"></i> ${localStorage.getItem("usuario")}`;
 }
 
 function logout()
@@ -69,8 +74,3 @@ function logout()
 document.addEventListener("DOMContentLoaded", function(e)
 {
 });
-  var auth2 = gapi.auth2.getAuthInstance();
-  if(auth2.isSignedIn.get())
-    document.getElementById("navbarDropdownMenuLink-4").innerHTML = `<i class="fas fa-user navLink" style="color: white;"></i> ${auth2.currentUser.get().getBasicProfile().getGivenName()}`;
-  else if(localStorage.getItem("usuario"))
-    document.getElementById("navbarDropdownMenuLink-4").innerHTML = `<i class="fas fa-user navLink" style="color: white;"></i> ${localStorage.getItem("usuario")}`;
