@@ -146,7 +146,8 @@ nav a:link
   opacity: 50%;
 }
 
-nav a:hover
+.navLink:hover
 {
-  opacity: 100%;
+  opacity: 1;
+  color: white;
 }

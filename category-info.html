@@ -14,17 +14,25 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
 </head>
 
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="py-2 d-none d-md-inline-block" href="login.html" onclick="javascript:logout();">Logout</a>
+      <a class="nav-item py-2 d-none d-md-inline-block navLink" href="index.html">Inicio</a>
+      <a class="nav-item py-2 d-none d-md-inline-block navLink" href="categories.html">Categorías</a>
+      <a class="nav-item py-2 d-none d-md-inline-block navLink" href="products.html">Productos</a>
+      <a class="nav-item py-2 d-none d-md-inline-block navLink" href="sell.html">Vender</a>
+      <a class="nav-item py-2 d-none d-md-inline-block navLink" href="cart.html">Mi carrito</a>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle py-2 d-none d-md-inline-block navLink" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" style="color: white;"></a>
+        <div class="dropdown-menu dropdown-menu-left dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+          <a class="dropdown-item" href="login.html" onclick="javascript:logout();"> <i class="fas fa-lock"></i> Log out</a>
+        </div>
+      </div>
     </div>
   </nav>
   <main role="main">
@@ -83,6 +91,8 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/category-info.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
   <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 </body>
 
