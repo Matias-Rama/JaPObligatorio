@@ -68,9 +68,9 @@ function logout()
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e)
 {
+});
   var auth2 = gapi.auth2.getAuthInstance();
   if(auth2.isSignedIn.get())
     document.getElementById("navbarDropdownMenuLink-4").innerHTML = `<i class="fas fa-user navLink" style="color: white;"></i> ${auth2.currentUser.get().getBasicProfile().getGivenName()}`;
-  if(localStorage.getItem("usuario"))
+  else if(localStorage.getItem("usuario"))
     document.getElementById("navbarDropdownMenuLink-4").innerHTML = `<i class="fas fa-user navLink" style="color: white;"></i> ${localStorage.getItem("usuario")}`;
-});
