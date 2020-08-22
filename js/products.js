@@ -77,7 +77,6 @@ function showAndSortProducts(criterion, products)
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-   let products = [];
    getJSONData(PRODUCTS_URL).then(function(resultObj){
       if(resultObj.status === "ok")
       {
@@ -86,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
          resultObj.data[2].imgSrc = resultObj.data[3].imgSrc;
          resultObj.data[3].imgSrc = aux;
 
-         products = resultObj.data;
+         currentProductsArray = resultObj.data;
          showAndSortProducts(ORDER_ASC_BY_PRICE, resultObj.data);
       }
    });
@@ -110,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
       minPrice = undefined;
       maxPrice = undefined;
 
-      showProductsList(products);
+      showProductsList(currentProductsArray);
    });
 
    document.getElementById("rangeFilterPrice").addEventListener("click", function(){
@@ -132,6 +131,35 @@ document.addEventListener("DOMContentLoaded", function (e) {
          maxPrice = undefined;
       }
 
-      showProductsList(products);
+      showProductsList(currentProductsArray);
    });
+
+});
+
+document.getElementById("search").addEventListener("keyup", function(ev)
+{  
+   let searchTerms = document.getElementById("search").value;  
+   document.getElementById("cat-list-container").innerHTML = ``; 
+   for(let i = 0; i < currentProductsArray.length; i++){
+      let product = currentProductsArray[i];
+      let str = product.name.toString();
+      if(str.includes(searchTerms)){
+         document.getElementById("cat-list-container").innerHTML += `
+         <div class="list-group-item list-group-item-action shadow">
+            <div class="row">
+               <div class="col-3">
+                  <img src="${product.imgSrc}" alt="${product.description}" class="img-thumbnail">
+               </div>
+               <div class="col">
+                  <div class="d-flex w-100 justify-content-between">
+                     <h4 class="pb-4"> <strong>${product.name}</strong> </h4>
+                     <small class="text-muted">${product.soldCount} artículos</small>
+                  </div>
+                  <p class="lead"> ${product.currency} ${product.cost} </p>
+                  <p class="lead"> ${product.description} </p>
+               </div>
+            </div>
+         </div>`
+      }
+   }
 });
