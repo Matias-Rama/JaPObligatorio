@@ -54,36 +54,28 @@
             </div>
           </div>
         </div>
-        <div class="row justify-content-end">
-          <div class="col-md-6"></div>
-            <div class="col-md-6 col-sm-12 mb-1 container">
-              <div class="row container p-0 m-0">
-                <div class="col">
-                  <p class="font-weight-normal text-right my-2">$</p>
-                </div>
-                <div class="col">
-                  <input class="form-control" type="number" placeholder="min." id="rangeFilterPriceMin">
-                </div>
-                <div class="col">
-                  <input class="form-control" type="number" placeholder="máx." id="rangeFilterPriceMax">
-                </div>
-                <div class="col-3 p-0">
-                  <div class="btn-group" role="group">
-                    <button class="btn btn-light" id="rangeFilterPrice">Filtrar</button>
-                    <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
-                  </div>
-                </div>
+        <div class="row justify-content-end" style="margin-bottom: 5px;">
+          <div class="row container p-0 m-0" style="display: flex;" style="flex-direction: row;" style="justify-content: space-between;">
+            <div class="col" style="display: flex;" style="flex-direction: row;">
+              <input type="text" id="search" class="inText form-control" autocomplete="off" placeholder="Search" style="width: 250px;">
+            </div>
+            <div class="col justify-content-end" style="display: flex;" style="flex-direction: row;">
+              <div style="margin-right: 10px;">
+                <i class="fas fa-dollar-sign text-right my-2" style="padding-top: 3px;"></i>
+              </div>
+              <div style="margin-right: 10px;">
+                <input class="form-control" type="number" placeholder="min." id="rangeFilterPriceMin" style="max-width: 130px;">
+              </div>
+              <div style="margin-right: 10px;">
+                <input class="form-control" type="number" placeholder="máx." id="rangeFilterPriceMax" style="max-width: 130px;">
+              </div>
+              <div class="btn-group" role="group">
+                <button class="btn btn-light" id="rangeFilterPrice"><i class="fas fa-filter"></i> Filtrar</button>
+                <button class="btn btn-light" id="clearRangeFilter"><i class="fas fa-broom"></i> Limpiar</button>
               </div>
             </div>
-        </div>
-        <div class="row justify-content-start">
-          <div>
-            <label for="search" class="label-name">
-              <i class="fas fa-search"></i>
-            </label>
-            <input type="text" id="search" class="inText" autocomplete="off" placeholder="Search">
           </div>
-        </div>  
+        </div> 
         <div class="row">
           <div class="list-group" id="cat-list-container"></div>
         </div>
