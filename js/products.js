@@ -5,6 +5,38 @@ var currentProductsArray = [];
 var minPrice = undefined;
 var maxPrice = undefined;
 
+function addMoreProducts(products)
+{
+   let bmwM4 = {
+      "name": "BMW M4 Competition",
+      "description": "Generación 2020, la variante más extrema de la familia Serie 4 de BMW, deportivo de aspecto fiero y formato coupé.",
+      "cost": 38000,
+      "currency": "USD",
+      "imgSrc": "img/prod5.jpg",
+      "soldCount": 5
+   };
+   let mitsubishiEclipseCross = {
+      "name": "Mitsubishi Eclipse Cross",
+      "description": "Todocamino con motor 1.5 gasolina turboalimentado con 163 CV.",
+      "cost": 19550,
+      "currency": "USD",
+      "imgSrc": "img/prod6.jpg",
+      "soldCount": 13
+   };
+   let citroenC3 = {
+      "name": "Citroën C3",
+      "description": "Dispone de motorizaciones de última generación PureTech, eficientes y de reducido consumo y emisiones.",
+      "cost": 13999,
+      "currency": "USD",
+      "imgSrc": "img/prod7.jpg",
+      "soldCount": 22
+   };
+   
+   products.push(citroenC3);
+   products.push(bmwM4);
+   products.push(mitsubishiEclipseCross);
+}
+
 function sortProducts(products, criterion)
 {
    if(criterion === ORDER_ASC_BY_PRICE)
@@ -56,7 +88,7 @@ function showProductsList(array){
                      <h4 class="pb-4"> <strong>${product.name}</strong> </h4>
                      <small class="text-muted">${product.soldCount} artículos</small>
                   </div>
-                  <p class="lead"> ${product.currency} ${product.cost} </p>
+                  <p class="lead"><em> ${product.currency} ${product.cost} </em></p>
                   <p class="lead"> ${product.description} </p>
                </div>
             </div>
@@ -84,6 +116,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
          let aux = resultObj.data[2].imgSrc;
          resultObj.data[2].imgSrc = resultObj.data[3].imgSrc;
          resultObj.data[3].imgSrc = aux;
+
+         // Agregamos mas productos
+         addMoreProducts(resultObj.data);
 
          currentProductsArray = resultObj.data;
          showAndSortProducts(ORDER_ASC_BY_PRICE, resultObj.data);
@@ -155,7 +190,7 @@ document.getElementById("search").addEventListener("keyup", function(ev)
                      <h4 class="pb-4"> <strong>${product.name}</strong> </h4>
                      <small class="text-muted">${product.soldCount} artículos</small>
                   </div>
-                  <p class="lead"> ${product.currency} ${product.cost} </p>
+                  <p class="lead"><em> ${product.currency} ${product.cost} </em></p>
                   <p class="lead"> ${product.description} </p>
                </div>
             </div>
