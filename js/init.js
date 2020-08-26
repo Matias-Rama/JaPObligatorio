@@ -70,4 +70,6 @@ document.addEventListener("DOMContentLoaded", function(e)
 {
   if(localStorage.getItem("usuario"))
     document.getElementById("navbarDropdownMenuLink-4").innerHTML = `<i class="fas fa-user navLink" style="color: white;"></i>  ${localStorage.getItem("usuario")}`;
+
+  
 });

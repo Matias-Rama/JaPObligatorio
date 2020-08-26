@@ -140,14 +140,44 @@ a.custom-card:hover {
   color: orange;
 }
 
+.navLink
+{
+  font-size: 18px;
+  color: white;
+}
+
 .navLink:link
 {
   text-decoration:none;
   opacity: 50%;
 }
 
-.navLink:hover
+.navBar
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.navItem
+{
+  height: 100%;
+  width: 150px;
+  text-align: center;
+}
+
+.navItem:hover, .Active 
+{
+  background-color: #555555;
+  cursor: pointer;
+}
+
+.navItem:hover .navLink, .Active .navLink
 {
   opacity: 1;
   color: white;
 }
+
+.dropdown { margin-top: 8px; }
+
+#navbarDropdownMenuLink-4 { font-size: 18px; }

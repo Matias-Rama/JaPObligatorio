@@ -35,23 +35,32 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="nav-item py-2 d-none d-md-inline-block navLink" href="index.html">Inicio</a>
-      <a class="nav-item py-2 d-none d-md-inline-block navLink" href="categories.html">Categorías</a>
-      <a class="nav-item py-2 d-none d-md-inline-block navLink" href="products.html">Productos</a>
-      <a class="nav-item py-2 d-none d-md-inline-block navLink" href="sell.html">Vender</a>
-      <a class="nav-item py-2 d-none d-md-inline-block navLink" href="cart.html">Mi carrito</a>
-      <div class="nav-item dropdown">
-        <button class="btn btn-secondary" type="button" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        </button>
-        <div class="dropdown-menu dropdown-menu-left dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-          <a class="dropdown-item" href="my-profile.html"><i class="fas fa-user-edit"></i> My Profile</a>
-          <a class="dropdown-item" href="login.html" onclick="javascript:logout();"> <i class="fas fa-lock"></i> Log out</a>
-        </div>
+  <nav class="navBar bg-dark shadow-lg">
+    <div class="navItem btn">
+      <a class="py-2 d-none d-md-inline-block navLink" href="index.html">Inicio</a>
+    </div>
+    <div class="navItem btn">
+      <a class="py-2 d-none d-md-inline-block navLink" href="categories.html">Categorías</a>
+    </div>
+    <div class="navItem btn">
+      <a class="py-2 d-none d-md-inline-block navLink" href="products.html">Productos</a>
+    </div>
+    <div class="navItem btn">
+      <a class="py-2 d-none d-md-inline-block navLink" href="sell.html">Vender</a>
+    </div>
+    <div class="navItem btn Active">
+      <a class="py-2 d-none d-md-inline-block navLink" href="cart.html">Mi carrito</a>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-secondary" type="button" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      </button>
+      <div class="dropdown-menu dropdown-menu-left dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+        <a class="dropdown-item" href="my-profile.html"><i class="fas fa-user-edit"></i> My Profile</a>
+        <a class="dropdown-item" href="login.html" onclick="javascript:logout();"> <i class="fas fa-lock"></i> Log out</a>
       </div>
     </div>
   </nav>
+
   <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading">¡A trabajar! :)</h4>
@@ -68,6 +77,7 @@
       <div></div>
     </div>
   </div>
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
