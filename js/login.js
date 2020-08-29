@@ -1,9 +1,21 @@
 
 function onSuccess(googleUser)
 {
-   localStorage.usuario = googleUser.getBasicProfile().getName();
-   localStorage.pass = "Google no me da la contraseña :("
-   localStorage.img = googleUser.getBasicProfile().getImageUrl();
+   /* if(!localStorage.getItem("usuario"))
+   else
+      localStorage.usuario = googleUser.getBasicProfile().getName();
+   
+   if(!localStorage.getItem("pass"))
+   else
+      localStorage.pass = "Google no me da la contraseña :("
+   
+   if(!localStorage.getItem("img"))
+   else
+      localStorage.img = googleUser.getBasicProfile().getImageUrl(); */
+   
+      localStorage.setItem("usuario", googleUser.getBasicProfile().getName());
+      localStorage.setItem("pass", "Google no me da la contraseña :(");
+      localStorage.setItem("img", googleUser.getBasicProfile().getImageUrl());
    window.location.assign("index.html");
 }
 
@@ -32,16 +44,9 @@ function signIn()
    let pass = document.getElementById("inputPassword");
 
    if(email.value != "" && pass.value != ""){
-      if(!localStorage.getItem("usuario"))
-         localStorage.setItem("usuario", email.value);
-      else
-         localStorage.usuario = email.value;
-
-      if(!localStorage.getItem("pass"))
-         localStorage.setItem("pass", email.pass);
-      else
-         localStorage.pass = pass.value;
-
+      localStorage.setItem("usuario", email.value);
+      localStorage.setItem("pass", email.pass);
+      
       window.location.assign("index.html");
    }
 }
