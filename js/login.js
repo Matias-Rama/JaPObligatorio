@@ -1,21 +1,10 @@
 
 function onSuccess(googleUser)
 {
-   /* if(!localStorage.getItem("usuario"))
-   else
-      localStorage.usuario = googleUser.getBasicProfile().getName();
+   localStorage.setItem("usuario", googleUser.getBasicProfile().getName());
+   localStorage.setItem("pass", "Google no me da la contraseña :(");
+   localStorage.setItem("img", googleUser.getBasicProfile().getImageUrl());
    
-   if(!localStorage.getItem("pass"))
-   else
-      localStorage.pass = "Google no me da la contraseña :("
-   
-   if(!localStorage.getItem("img"))
-   else
-      localStorage.img = googleUser.getBasicProfile().getImageUrl(); */
-   
-      localStorage.setItem("usuario", googleUser.getBasicProfile().getName());
-      localStorage.setItem("pass", "Google no me da la contraseña :(");
-      localStorage.setItem("img", googleUser.getBasicProfile().getImageUrl());
    window.location.assign("index.html");
 }
 
