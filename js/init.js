@@ -55,6 +55,7 @@ function logout()
 {
   localStorage.usuario = "";
   localStorage.pass = "";
+  localStorage.img = "";
   var auth2 = gapi.auth2.getAuthInstance();
   if(auth2.isSignedIn.get())
     signOut();
@@ -65,8 +66,13 @@ function logout()
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e)
 {
-  if(localStorage.getItem("usuario"))
-    document.getElementById("navbarDropdownMenuLink-4").innerHTML = `<i class="fas fa-user navLink"></i>  ${localStorage.getItem("usuario")}`;
+  if(localStorage.getItem("usuario")){
+    if(localStorage.getItem("img"))
+      document.getElementById("navbarDropdownMenuLink-4").innerHTML += `<img src=localStorage.getItem("img")> ${localStorage.getItem("usuario")}`;
+    else
+      document.getElementById("navbarDropdownMenuLink-4").innerHTML = `<i class="fas fa-user navLink"></i>  ${localStorage.getItem("usuario")}`;
+  }
+  
 
   // Evento de click para redirigir con div de la barra de navegacion.
   document.querySelectorAll('div.navItem').forEach(function(elem)

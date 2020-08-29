@@ -3,6 +3,7 @@ function onSuccess(googleUser)
 {
    localStorage.usuario = googleUser.getBasicProfile().getName();
    localStorage.pass = "Google no me da la contraseña :("
+   localStorage.img = googleUser.getBasicProfile().getImageUrl();
    window.location.assign("index.html");
 }
 
