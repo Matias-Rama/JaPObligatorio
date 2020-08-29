@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function(e)
   if(localStorage.getItem("usuario"))
     document.getElementById("navbarDropdownMenuLink-4").innerHTML = `<i class="fas fa-user navLink"></i>  ${localStorage.getItem("usuario")}`;
 
+  // Evento de click para redirigir con div de la barra de navegacion.
   document.querySelectorAll('div.navItem').forEach(function(elem)
   {
     elem.addEventListener("click", function(ev)
