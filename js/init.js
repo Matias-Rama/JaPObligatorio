@@ -23,20 +23,17 @@ var getJSONData = function(url){
       if (response.ok) {
         return response.json();
       }else{
-        throw Error(response.statusText);
+        result.status = 'error';
+        result.data = response.statusText;
+        hideSpinner();
+        return result;
       }
     })
     .then(function(response) {
-          result.status = 'ok';
-          result.data = response;
-          hideSpinner();
-          return result;
-    })
-    .catch(function(error) {
-        result.status = 'error';
-        result.data = error;
-        hideSpinner();
-        return result;
+      result.status = 'ok';
+      result.data = response;
+      hideSpinner();
+      return result;
     });
 }
 
@@ -69,5 +66,13 @@ function logout()
 document.addEventListener("DOMContentLoaded", function(e)
 {
   if(localStorage.getItem("usuario"))
-    document.getElementById("navbarDropdownMenuLink-4").innerHTML = `<i class="fas fa-user navLink" style="color: white;"></i>  ${localStorage.getItem("usuario")}`;
+    document.getElementById("navbarDropdownMenuLink-4").innerHTML = `<i class="fas fa-user navLink"></i>  ${localStorage.getItem("usuario")}`;
+
+  document.querySelectorAll('div.navItem').forEach(function(elem)
+  {
+    elem.addEventListener("click", function(ev)
+    {
+      window.location.assign(ev.target.getElementsByTagName('a')[0].getAttribute('href'));
+    });
+  });
 });

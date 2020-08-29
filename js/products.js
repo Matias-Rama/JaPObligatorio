@@ -10,7 +10,7 @@ function addMoreProducts(products)
    let bmwM4 = {
       "name": "BMW M4 Competition",
       "description": "Generación 2020, la variante más extrema de la familia Serie 4 de BMW, deportivo de aspecto fiero y formato coupé.",
-      "cost": 38000,
+      "cost": 95000,
       "currency": "USD",
       "imgSrc": "img/prod5.jpg",
       "soldCount": 5
@@ -169,32 +169,34 @@ document.addEventListener("DOMContentLoaded", function (e) {
       showProductsList(currentProductsArray);
    });
 
-});
+   document.getElementById("search").addEventListener("keyup", function(ev)
+   {  
+      let searchTerms = document.getElementById("search").value;
 
-document.getElementById("search").addEventListener("keyup", function(ev)
-{  
-   let searchTerms = document.getElementById("search").value;  
-   document.getElementById("cat-list-container").innerHTML = ``; 
-   for(let i = 0; i < currentProductsArray.length; i++){
-      let product = currentProductsArray[i];
-      let str = product.name.toString();
-      if(str.includes(searchTerms)){
-         document.getElementById("cat-list-container").innerHTML += `
-         <div class="list-group-item list-group-item-action shadow">
-            <div class="row">
-               <div class="col-3">
-                  <img src="${product.imgSrc}" alt="${product.description}" class="img-thumbnail">
-               </div>
-               <div class="col">
-                  <div class="d-flex w-100 justify-content-between">
-                     <h4 class="pb-4"> <strong>${product.name}</strong> </h4>
-                     <small class="text-muted">${product.soldCount} artículos</small>
+      document.getElementById("cat-list-container").innerHTML = ``;
+      
+      for(let i = 0; i < currentProductsArray.length; i++){
+         let product = currentProductsArray[i];
+         let nombreAuto = product.name.toString();
+         if(nombreAuto.includes(searchTerms)){
+            document.getElementById("cat-list-container").innerHTML += `
+            <div class="list-group-item list-group-item-action shadow">
+               <div class="row">
+                  <div class="col-3">
+                     <img src="${product.imgSrc}" alt="${product.description}" class="img-thumbnail">
                   </div>
-                  <p class="lead"><em> ${product.currency} ${product.cost} </em></p>
-                  <p class="lead"> ${product.description} </p>
+                  <div class="col">
+                     <div class="d-flex w-100 justify-content-between">
+                        <h4 class="pb-4"> <strong>${product.name}</strong> </h4>
+                        <small class="text-muted">${product.soldCount} artículos</small>
+                     </div>
+                     <p class="lead"><em> ${product.currency} ${product.cost} </em></p>
+                     <p class="lead"> ${product.description} </p>
+                  </div>
                </div>
-            </div>
-         </div>`
+            </div>`
+         }
       }
-   }
+   });
+
 });
