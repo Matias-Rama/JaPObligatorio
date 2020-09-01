@@ -4,6 +4,7 @@ const ORDER_BY_SOLD_COUNT = "Cant.";
 var currentProductsArray = [];
 var minPrice = undefined;
 var maxPrice = undefined;
+var terminoBusqueda = undefined;
 
 function addMoreProducts(products)
 {
@@ -73,9 +74,11 @@ function showProductsList(array){
    document.getElementById("cat-list-container").innerHTML = ``;   
    for(let i = 0; i < array.length; i++){
       let product = array[i];
+      let nombreAuto = product.name.toString();
 
       if((minPrice == undefined || parseInt(product.cost) >= minPrice) && 
-         (maxPrice == undefined || parseInt(product.cost) <= maxPrice)){
+         (maxPrice == undefined || parseInt(product.cost) <= maxPrice) &&
+         (terminoBusqueda == undefined || nombreAuto.includes(terminoBusqueda))){
          
          document.getElementById("cat-list-container").innerHTML += `
          <div class="list-group-item list-group-item-action shadow">
@@ -171,32 +174,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
    document.getElementById("search").addEventListener("keyup", function(ev)
    {  
-      let searchTerms = document.getElementById("search").value;
-
-      document.getElementById("cat-list-container").innerHTML = ``;
+      terminoBusqueda = document.getElementById("search").value;
       
-      for(let i = 0; i < currentProductsArray.length; i++){
-         let product = currentProductsArray[i];
-         let nombreAuto = product.name.toString();
-         if(nombreAuto.includes(searchTerms)){
-            document.getElementById("cat-list-container").innerHTML += `
-            <div class="list-group-item list-group-item-action shadow">
-               <div class="row">
-                  <div class="col-3">
-                     <img src="${product.imgSrc}" alt="${product.description}" class="img-thumbnail">
-                  </div>
-                  <div class="col">
-                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="pb-4"> <strong>${product.name}</strong> </h4>
-                        <small class="text-muted">${product.soldCount} artículos</small>
-                     </div>
-                     <p class="lead"><em> ${product.currency} ${product.cost} </em></p>
-                     <p class="lead"> ${product.description} </p>
-                  </div>
-               </div>
-            </div>`
-         }
-      }
+      if((terminoBusqueda == undefined) || (terminoBusqueda == ""))
+         terminoBusqueda = undefined;
+
+      showProductsList(currentProductsArray);
    });
+
+   document.getElementById("cat-list-container").addEventListener("click", function()
+   {
+      window.location.assign("product-info.html");
+   })
 
 });

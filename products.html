@@ -17,36 +17,37 @@
   </head>
   <body>
     <nav class="navBar bg-dark shadow-lg">
-    <div class="navItem btn">
-      <a class="py-2 d-none d-md-inline-block navLink" href="index.html">Inicio</a>
-    </div>
-    <div class="navItem btn">
-      <a class="py-2 d-none d-md-inline-block navLink" href="categories.html">Categorías</a>
-    </div>
-    <div class="navItem btn Active">
-      <a class="py-2 d-none d-md-inline-block navLink" href="products.html">Productos</a>
-    </div>
-    <div class="navItem btn">
-      <a class="py-2 d-none d-md-inline-block navLink" href="sell.html">Vender</a>
-    </div>
-    <div class="navItem btn">
-      <a class="py-2 d-none d-md-inline-block navLink" href="cart.html">Mi carrito</a>
-    </div>
-    <div class="dropdown">
-      <button class="btn btn-secondary" type="button" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      </button>
-      <div class="dropdown-menu dropdown-menu-left dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-        <a class="dropdown-item" href="my-profile.html"><i class="fas fa-user-edit"></i> My Profile</a>
-        <a class="dropdown-item" href="login.html" onclick="javascript:logout();"> <i class="fas fa-lock"></i> Log out</a>
+      <div class="navItem btn">
+        <a class="py-2 d-none d-md-inline-block navLink" href="index.html">Inicio</a>
       </div>
-    </div>
-  </nav>
+      <div class="navItem btn">
+        <a class="py-2 d-none d-md-inline-block navLink" href="categories.html">Categorías</a>
+      </div>
+      <div class="navItem btn Active">
+        <a class="py-2 d-none d-md-inline-block navLink" href="products.html">Productos</a>
+      </div>
+      <div class="navItem btn">
+        <a class="py-2 d-none d-md-inline-block navLink" href="sell.html">Vender</a>
+      </div>
+      <div class="navItem btn">
+        <a class="py-2 d-none d-md-inline-block navLink" href="cart.html">Mi carrito</a>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-secondary" type="button" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </button>
+        <div class="dropdown-menu dropdown-menu-left dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+          <a class="dropdown-item" href="my-profile.html"><i class="fas fa-user-edit"></i> My Profile</a>
+          <a class="dropdown-item" href="login.html" onclick="javascript:logout();"> <i class="fas fa-lock"></i> Log out</a>
+        </div>
+      </div>
+    </nav>
 
     <main role="main">
       <div class="text-center pb-4">
         <br><h2>Listado de productos</h2>
         <p class="lead">Verás aquí todos los productos de la categoría autos.</p>
       </div>
+
       <div class="container">
         <div class="row">
           <div class="col text-right">
@@ -63,6 +64,7 @@
             </div>
           </div>
         </div>
+
         <div class="row justify-content-end" style="margin-bottom: 5px;">
           <div class="row container p-0 m-0" style="display: flex;" style="flex-direction: row;" style="justify-content: space-between;">
             <div class="col" style="display: flex;" style="flex-direction: row;">
@@ -84,7 +86,8 @@
               </div>
             </div>
           </div>
-        </div> 
+        </div>
+        
         <div class="row">
           <div class="list-group" id="cat-list-container"></div>
         </div>
