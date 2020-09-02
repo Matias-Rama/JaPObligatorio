@@ -7,8 +7,8 @@ function showRelatedProducts(releatedProducts)
    releatedProducts.forEach(relIndex => 
    {
       releatedContainer.innerHTML += `
-         <a href="product-info.html" class="list-group-item card custom-card" style="max-width: 180px;">
-            <img class="card-img-top" src="${products[relIndex].imgSrc}" style="max-width: 150px;">
+         <a href="product-info.html" class="card custom-card" style="max-width: 200px;">
+            <img class="card-img-top" src="${products[relIndex].imgSrc}">
             <div class="card-body">
                <h6 class="card-title"> <strong>${products[relIndex].name}</strong> </h6>
                <p class="card-text">${products[relIndex].currency} ${products[relIndex].cost}</p>
@@ -44,10 +44,45 @@ function showProductImages(productImages)
    }
 }
 
+function showComments(comments)
+{
+   let commentsContainer = document.getElementById("productComments");
+   let raitingSum = 0;
+
+   comments.forEach((prodComment, index) => 
+   {
+      // Nombre del usuario, comentario y fecha.
+      raitingSum += prodComment.score;
+      commentsContainer.innerHTML += `
+         <div>
+            <p id="userComment${index}"><strong> ${prodComment.user} </strong></p>
+            <p> ${prodComment.description} </p>
+            <p> ${prodComment.dateTime} </p>
+         </div>`;
+
+      let userComment = document.getElementById(`userComment${index}`); 
+      // Valoracion del usuario.
+      for(let i=0; i<prodComment.score; i++)
+      {
+         userComment.innerHTML += `
+            <span class="fas fa-star checked"></span>`;
+      }
+      // Estrellas restantes. 
+      for(let i=prodComment.score; i<5; i++)
+      {
+         userComment.innerHTML += `
+            <span class="fas fa-star"></span>`;
+      }
+   });
+   
+   document.getElementById("averageRaiting").innerHTML = `${raitingSum/comments.length}`;
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+   
    getJSONData(PRODUCTS_URL).then(function(resultObj)
    {
       if(resultObj.status === 'ok')
@@ -60,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function(e){
          products = resultObj.data;
       }
    });
-   
+
    getJSONData(PRODUCT_INFO_URL).then(function(resultObj)
    {
       if(resultObj.status === 'ok')
@@ -75,6 +110,14 @@ document.addEventListener("DOMContentLoaded", function(e){
 
          showProductImages(product.images);
          showRelatedProducts(product.relatedProducts);         
+      }
+   });
+
+   getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj)
+   {
+      if(resultObj.status === 'ok')
+      {
+         showComments(resultObj.data);
       }
    });
 });

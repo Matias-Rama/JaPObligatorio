@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <nav class="navBar bg-dark shadow-lg">
+  <nav class="navBar bg-dark shadow">
     <a href="index.html" class="navItem btn">
       <span class="py-2 d-none d-md-inline-block navLink">Inicio</span>
     </a>
@@ -37,7 +37,7 @@
     <div class="dropdown">
       <button class="btn btn-secondary" type="button" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       </button>
-      <div class="dropdown-menu dropdown-menu-left dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+      <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
         <a class="dropdown-item" href="my-profile.html"><i class="fas fa-user-edit"></i> My Profile</a>
         <a class="dropdown-item" href="login.html" onclick="javascript:logout();"> <i class="fas fa-lock"></i> Log out</a>
       </div>
@@ -69,9 +69,11 @@
             </div>
             <!-- Precio y nombre del producto -->
             <div class="price-and-name">
-              <h3 class="text-center pb-4" id="productName"></h3>
-              <h3 class="text-center" id="productPrice"></h3><br>
-              <h4 class="text-muted text-center" id="productSoldCount"></h4>
+              <h4 class="text-muted" id="productSoldCount" style="align-self: flex-end; margin-top: 0px;"></h4>
+              <h3 class="pb-4" id="productName" style="margin-left: 20px;"></h3>
+              <h2 id="productPrice" style="margin-left: 20px;"></h2><br><br>
+              <h3 id="averageRaiting" style="margin-left: 20px;"></h3>
+              <button class="btn btn-lg btn-primary btn-block" type="button" style="max-width: 300px; align-self: center; margin-top: auto;">Comprar</button>
             </div>
           </div>
           <!-- Productos relacionados -->
@@ -83,6 +85,11 @@
           <div class="product-section">
             <h3><strong> Descripción </strong></h3><br>
             <p class="lead" id="productDescription"></p>
+          </div>
+          <!-- Opiniones sobre el producto -->
+          <div class="product-section">
+            <h3><strong> Opiniones sobre el producto </strong></h3><br>
+            <div id="productComments"></div>
           </div>
         </div>
       </div>
