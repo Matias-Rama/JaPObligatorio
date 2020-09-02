@@ -19,21 +19,21 @@
 
 <body>
   <nav class="navBar bg-dark shadow-lg">
-    <div class="navItem btn">
-      <a class="py-2 d-none d-md-inline-block navLink" href="index.html">Inicio</a>
-    </div>
-    <div class="navItem btn">
-      <a class="py-2 d-none d-md-inline-block navLink" href="categories.html">Categorías</a>
-    </div>
-    <div class="navItem btn Active">
-      <a class="py-2 d-none d-md-inline-block navLink" href="products.html">Productos</a>
-    </div>
-    <div class="navItem btn">
-      <a class="py-2 d-none d-md-inline-block navLink" href="sell.html">Vender</a>
-    </div>
-    <div class="navItem btn">
-      <a class="py-2 d-none d-md-inline-block navLink" href="cart.html">Mi carrito</a>
-    </div>
+    <a href="index.html" class="navItem btn">
+      <span class="py-2 d-none d-md-inline-block navLink">Inicio</span>
+    </a>
+    <a href="categories.html" class="navItem btn">
+      <span class="py-2 d-none d-md-inline-block navLink">Categorías</span>
+    </a>
+    <a href="products.html" class="navItem btn Active">
+      <span class="py-2 d-none d-md-inline-block navLink">Productos</span>
+    </a>
+    <a href="sell.html" class="navItem btn">
+      <span class="py-2 d-none d-md-inline-block navLink">Vender</span>
+    </a>
+    <a href="cart.html" class="navItem btn">
+      <span class="py-2 d-none d-md-inline-block navLink">Mi carrito</span>
+    </a>
     <div class="dropdown">
       <button class="btn btn-secondary" type="button" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       </button>
@@ -44,9 +44,48 @@
     </div>
   </nav>
 
-  <main>
-    <div class="row">
-      <div class="list-group" id="cat-list-container"></div>
+  <main role="main">
+    <br><br>
+    <div class="container shadow-lg">
+      <div class="row">
+        <div class="list-group-item" id="product-container">
+          <div id="productBasicInfo">
+            <div id="carousel">
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <!-- Barritas en el carrusel de imagenes -->
+                <ol class="carousel-indicators" id="list-images"></ol>
+                <!-- Contenedor de imagenes del producto -->
+                <div class="carousel-inner" id="productImages"></div>
+
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true" ></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+            <!-- Precio y nombre del producto -->
+            <div class="price-and-name">
+              <h3 class="text-center pb-4" id="productName"></h3>
+              <h3 class="text-center" id="productPrice"></h3><br>
+              <h4 class="text-muted text-center" id="productSoldCount"></h4>
+            </div>
+          </div>
+          <!-- Productos relacionados -->
+          <div class="product-section">
+            <h3><strong> Productos Relacionados </strong></h3><br>
+            <div class="card-deck" id="releatedProducts"></div>
+          </div>
+          <!-- Descripcion del producto -->
+          <div class="product-section">
+            <h3><strong> Descripción </strong></h3><br>
+            <p class="lead" id="productDescription"></p>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 

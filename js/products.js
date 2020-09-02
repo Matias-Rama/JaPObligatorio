@@ -4,7 +4,7 @@ const ORDER_BY_SOLD_COUNT = "Cant.";
 var currentProductsArray = [];
 var minPrice = undefined;
 var maxPrice = undefined;
-var terminoBusqueda = undefined;
+var terminosBusqueda = undefined;
 
 function addMoreProducts(products)
 {
@@ -76,9 +76,9 @@ function showProductsList(array){
       let product = array[i];
       let nombreAuto = product.name.toString();
 
-      if((minPrice == undefined || parseInt(product.cost) >= minPrice) && 
+      if((minPrice == undefined || parseInt(product.cost) >= minPrice) &&
          (maxPrice == undefined || parseInt(product.cost) <= maxPrice) &&
-         (terminoBusqueda == undefined || nombreAuto.includes(terminoBusqueda))){
+         (terminosBusqueda == undefined || nombreAuto.includes(terminosBusqueda))){
          
          document.getElementById("cat-list-container").innerHTML += `
          <div class="list-group-item list-group-item-action shadow">
@@ -95,7 +95,7 @@ function showProductsList(array){
                   <p class="lead"> ${product.description} </p>
                </div>
             </div>
-         </div>`
+         </div>`;
       }   
    }
 }
@@ -174,10 +174,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
    document.getElementById("search").addEventListener("keyup", function(ev)
    {  
-      terminoBusqueda = document.getElementById("search").value;
+      terminosBusqueda = document.getElementById("search").value;
       
-      if((terminoBusqueda == undefined) || (terminoBusqueda == ""))
-         terminoBusqueda = undefined;
+      if((terminosBusqueda == undefined) || (terminosBusqueda == ""))
+         terminosBusqueda = undefined;
 
       showProductsList(currentProductsArray);
    });
@@ -185,6 +185,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
    document.getElementById("cat-list-container").addEventListener("click", function()
    {
       window.location.assign("product-info.html");
-   })
+   });
 
 });
