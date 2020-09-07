@@ -44,7 +44,6 @@ function postComment()
    let calificacion = 5-i;
 
    let texto = document.getElementById("textComentario").value.split('\n');
-   console.log(texto);
    document.getElementById("textComentario").value = "";
    let nombreUsuario = localStorage.getItem("usuario");
    let fechaActual = new Date();
