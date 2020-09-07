@@ -1,5 +1,68 @@
 var products = [];
 
+function showComments(comments)
+{
+   let commentsContainer = document.getElementById("productComments");
+   commentsContainer.innerHTML = "";
+   let raitingSum = 0;
+
+   comments.forEach((prodComment, index) => 
+   {
+      // Nombre del usuario, comentario y fecha.
+      raitingSum += prodComment.score;
+      commentsContainer.innerHTML += `
+         <div>
+            <p id="userComment${index}"><strong> ${prodComment.user} </strong></p>
+            <p style="white-space: pre;"> ${prodComment.description} </p>
+            <p> ${prodComment.dateTime} </p>
+         </div>`;
+
+      let userComment = document.getElementById(`userComment${index}`); 
+      // Valoracion del usuario.
+      for(let i=0; i<prodComment.score; i++)
+      {
+         userComment.innerHTML += `
+            <span class="fas fa-star checked"></span>`;
+      }
+      // Estrellas restantes. 
+      for(let i=prodComment.score; i<5; i++)
+      {
+         userComment.innerHTML += `
+            <span class="fas fa-star"></span>`;
+      }
+   });
+   
+   document.getElementById("averageRaiting").innerHTML = `${raitingSum/comments.length}`;
+}
+
+function postComment()
+{
+   let estrellas = Array.from(document.querySelectorAll("input[type='radio']"));
+   let i = 0;
+   while(i<5 && !estrellas[i].checked)
+      i++;
+   let calificacion = 5-i;
+
+   let texto = document.getElementById("textComentario").value.split('\n');
+   console.log(texto);
+   document.getElementById("textComentario").value = "";
+   let nombreUsuario = localStorage.getItem("usuario");
+   let fechaActual = new Date();
+   let time = `${fechaActual.getFullYear()}-${fechaActual.getMonth()+1}-${fechaActual.getDate()} ${fechaActual.getHours()}:${fechaActual.getMinutes()}:${fechaActual.getSeconds()}`;
+
+   let comentario = {
+      "score": calificacion,
+      "description": texto.join('<br>'),
+      "user": nombreUsuario,
+      "dateTime": time
+   };
+
+   let comentarios = JSON.parse(localStorage.getItem("comentarios"));
+   comentarios.push(comentario);
+   localStorage.setItem("comentarios", JSON.stringify(comentarios));
+   showComments(comentarios);
+}
+
 function showRelatedProducts(releatedProducts)
 {
    let releatedContainer = document.getElementById("releatedProducts");
@@ -44,39 +107,6 @@ function showProductImages(productImages)
    }
 }
 
-function showComments(comments)
-{
-   let commentsContainer = document.getElementById("productComments");
-   let raitingSum = 0;
-
-   comments.forEach((prodComment, index) => 
-   {
-      // Nombre del usuario, comentario y fecha.
-      raitingSum += prodComment.score;
-      commentsContainer.innerHTML += `
-         <div>
-            <p id="userComment${index}"><strong> ${prodComment.user} </strong></p>
-            <p> ${prodComment.description} </p>
-            <p> ${prodComment.dateTime} </p>
-         </div>`;
-
-      let userComment = document.getElementById(`userComment${index}`); 
-      // Valoracion del usuario.
-      for(let i=0; i<prodComment.score; i++)
-      {
-         userComment.innerHTML += `
-            <span class="fas fa-star checked"></span>`;
-      }
-      // Estrellas restantes. 
-      for(let i=prodComment.score; i<5; i++)
-      {
-         userComment.innerHTML += `
-            <span class="fas fa-star"></span>`;
-      }
-   });
-   
-   document.getElementById("averageRaiting").innerHTML = `${raitingSum/comments.length}`;
-}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -117,7 +147,9 @@ document.addEventListener("DOMContentLoaded", function(e){
    {
       if(resultObj.status === 'ok')
       {
-         showComments(resultObj.data);
+         if(!localStorage.getItem("comentarios"))
+            localStorage.setItem("comentarios", JSON.stringify(resultObj.data));
+         showComments(JSON.parse(localStorage.getItem("comentarios")));
       }
    });
 });

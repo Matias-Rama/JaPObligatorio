@@ -48,8 +48,8 @@
     <br><br>
     <div class="container shadow-lg">
       <div class="row">
-        <div class="list-group-item" id="product-container">
-          <div id="productBasicInfo">
+        <div class="list-group-item" style="max-width: 100%;">
+          <div class="d-flex flex-row">
             <div id="carousel">
               <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <!-- Barritas en el carrusel de imagenes -->
@@ -72,7 +72,7 @@
               <h4 class="text-muted" id="productSoldCount" style="align-self: flex-end; margin-top: 0px;"></h4>
               <h3 class="pb-4" id="productName" style="margin-left: 20px;"></h3>
               <h2 id="productPrice" style="margin-left: 20px;"></h2><br><br>
-              <h3 id="averageRaiting" style="margin-left: 20px;"></h3>
+              <h3 id="averageRaiting" style="margin-left: 20px;">Valoracion promedio: </h3>
               <button class="btn btn-lg btn-primary btn-block" type="button" style="max-width: 300px; align-self: center; margin-top: auto;">Comprar</button>
             </div>
           </div>
@@ -90,6 +90,25 @@
           <div class="product-section">
             <h3><strong> Opiniones sobre el producto </strong></h3><br>
             <div id="productComments"></div>
+          </div>
+          <div class="product-section" id="comment-section">
+            <h3><strong> Deja tu comentario </strong></h3>
+            <div class="rating">
+              <input type="radio" name="rating" value="5" id="5">
+              <label for="5">☆</label> 
+              <input type="radio" name="rating" value="4" id="4">
+              <label for="4">☆</label>
+              <input type="radio" name="rating" value="3" id="3">
+              <label for="3">☆</label>
+              <input type="radio" name="rating" value="2" id="2">
+              <label for="2">☆</label>
+              <input type="radio" name="rating" value="1" id="1">
+              <label for="1">☆</label>
+            </div>
+            <div class="d-flex flex-row align-items-center">
+              <textarea name="comentarioBox" id="textComentario" cols="50" rows="3"></textarea>          
+              <button class="btn btn-lg btn-primary btn-block" type="button" onclick="javascript:postComment();" style="max-width: 150px; margin-left: 20px;" id="commentBtn">Publicar</button>
+            </div>
           </div>
         </div>
       </div>
