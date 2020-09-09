@@ -1,5 +1,6 @@
 var products = [];
 
+// ***** Mostrar comentarios del producto. *****
 function showComments(comments)
 {
    let commentsContainer = document.getElementById("productComments");
@@ -18,12 +19,14 @@ function showComments(comments)
          </div>`;
 
       let userComment = document.getElementById(`userComment${index}`); 
+      
       // Valoracion del usuario.
       for(let i=0; i<prodComment.score; i++)
       {
          userComment.innerHTML += `
             <span class="fas fa-star checked"></span>`;
       }
+      
       // Estrellas restantes. 
       for(let i=prodComment.score; i<5; i++)
       {
@@ -32,36 +35,60 @@ function showComments(comments)
       }
    });
    
+   // Actualizamos la valoracion promedio del producto.
    document.getElementById("averageRaiting").innerHTML = `${raitingSum/comments.length}`;
 }
 
+// ***** Publicar un comentario acerca del producto. *****
 function postComment()
 {
+   // Obtenemos la calificacion en cantidad de estrellas seleccionadas.
    let estrellas = Array.from(document.querySelectorAll("input[type='radio']"));
    let i = 0;
    while(i<5 && !estrellas[i].checked)
       i++;
    let calificacion = 5-i;
 
-   let texto = document.getElementById("textComentario").value.split('\n');
-   document.getElementById("textComentario").value = "";
-   let nombreUsuario = localStorage.getItem("usuario");
-   let fechaActual = new Date();
-   let time = `${fechaActual.getFullYear()}-${fechaActual.getMonth()+1}-${fechaActual.getDate()} ${fechaActual.getHours()}:${fechaActual.getMinutes()}:${fechaActual.getSeconds()}`;
+   // Debe puntuar para dejar un comentario.
+   if(calificacion === 0)
+      document.getElementById("noPuntuo").style.display = 'inline';
+   else
+   {
+      document.getElementById("noPuntuo").style.display = 'none';
+   
+      let texto = document.getElementById("textComentario").value;
+      // Debe justifiacar su puntuacion para dejar un comentario.
+      if(texto === "")
+         document.getElementById("noJustifico").style.display = 'inline';
+      else
+      {
+         document.getElementById("noJustifico").style.display = 'none';
+         document.getElementById("textComentario").value = "";
+         i<5 ? estrellas[i].checked = false : undefined;
 
-   let comentario = {
-      "score": calificacion,
-      "description": texto.join('<br>'),
-      "user": nombreUsuario,
-      "dateTime": time
-   };
+         let nombreUsuario = localStorage.getItem("usuario");
+         // Obtenemos la fecha actual del sistema.
+         let fechaActual = new Date();
+         let time = `${fechaActual.getFullYear()}-${fechaActual.getMonth()+1}-${fechaActual.getDate()} ${fechaActual.getHours()}:${fechaActual.getMinutes()}:${fechaActual.getSeconds()}`;
 
-   let comentarios = JSON.parse(localStorage.getItem("comentarios"));
-   comentarios.push(comentario);
-   localStorage.setItem("comentarios", JSON.stringify(comentarios));
-   showComments(comentarios);
+         // Creamos el comentario.
+         let comentario = {
+            "score": calificacion,
+            "description": texto,
+            "user": nombreUsuario,
+            "dateTime": time
+         };
+
+         // Guardamos el comentario en local storage para que no se borre.
+         let comentarios = JSON.parse(localStorage.getItem("comentarios"));
+         comentarios.push(comentario);
+         localStorage.setItem("comentarios", JSON.stringify(comentarios));
+         showComments(comentarios);
+      }
+   }
 }
 
+// ***** Mostrar productos relacionados. *****
 function showRelatedProducts(releatedProducts)
 {
    let releatedContainer = document.getElementById("releatedProducts");
@@ -79,26 +106,36 @@ function showRelatedProducts(releatedProducts)
    });
 }
 
+// ***** Mostrar las imagenes del producto. *****
 function showProductImages(productImages)
 {
    let listImages = document.getElementById("list-images");
    let imagesContainer = document.getElementById("productImages");
 
    // Colocamos las barritas para pasar imagenes.
-   listImages.innerHTML += `<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>`;
-   for(let i=1; i < productImages.length; i++)
+   for(let i=0; i < productImages.length; i++)
    {
+      if(i === 0)
+      {
+         listImages.innerHTML += `
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>`;
+         continue;
+      }
       listImages.innerHTML += `
          <li data-target="#carouselExampleIndicators" data-slide-to="${i}"></li>`;
    }
 
    // Colocamos las imagenes del producto.
-   imagesContainer.innerHTML += `
-      <div class="carousel-item active">
-         <img class="d-block w-100" src="${productImages[0]}" alt="First slide">
-      </div>`;
-   for(let i=1; i < productImages.length; i++) 
+   for(let i=0; i < productImages.length; i++) 
    {
+      if(i === 0)
+      {
+         imagesContainer.innerHTML += `
+            <div class="carousel-item active">
+               <img class="d-block w-100" src="${productImages[0]}" alt="First slide">
+            </div>`;
+         continue;
+      }
       imagesContainer.innerHTML += `
          <div class="carousel-item">
             <img class="d-block w-100" src="${productImages[i]}" alt="Second slide">
@@ -116,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function(e){
    {
       if(resultObj.status === 'ok')
       {
-         // Corregimos las imagenes del Peugeot y del Susuki
+         // Corregimos las imagenes del Peugeot y del Susuki.
          let aux = resultObj.data[2].imgSrc;
          resultObj.data[2].imgSrc = resultObj.data[3].imgSrc;
          resultObj.data[3].imgSrc = aux;
@@ -146,6 +183,7 @@ document.addEventListener("DOMContentLoaded", function(e){
    {
       if(resultObj.status === 'ok')
       {
+         // Si no hay comentarios en el local storage agregamos los del JSON.
          if(!localStorage.getItem("comentarios"))
             localStorage.setItem("comentarios", JSON.stringify(resultObj.data));
          showComments(JSON.parse(localStorage.getItem("comentarios")));

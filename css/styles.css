@@ -228,11 +228,27 @@ a.card:hover
   border: 2px solid #0087F7;
 }
 
+#noPuntuo
+{
+  display: none;
+  color: red; 
+  margin-top: 15px; 
+}
+
+#noJustifico
+{
+  display: none;
+  color: red; 
+  margin-top: 15px; 
+  margin-left: 10px; 
+}
+
 .rating {
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
-    width: 250px;
+    align-items: center;
+    width: 500px;
 }
 
 .rating>input {
