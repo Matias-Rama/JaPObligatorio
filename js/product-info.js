@@ -36,7 +36,7 @@ function showComments(comments)
    });
    
    // Actualizamos la valoracion promedio del producto.
-   document.getElementById("averageRaiting").innerHTML = `${raitingSum/comments.length}`;
+   // document.getElementById("averageRaiting").innerHTML = `${raitingSum/comments.length}`;
 }
 
 // ***** Publicar un comentario acerca del producto. *****
@@ -55,8 +55,8 @@ function postComment()
    else
    {
       document.getElementById("noPuntuo").style.display = 'none';
-   
       let texto = document.getElementById("textComentario").value;
+
       // Debe justifiacar su puntuacion para dejar un comentario.
       if(texto === "")
          document.getElementById("noJustifico").style.display = 'inline';
