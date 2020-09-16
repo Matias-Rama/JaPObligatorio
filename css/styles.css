@@ -171,7 +171,8 @@ a.card:hover
 {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  height: 60px;
 }
 
 .navItem
@@ -183,17 +184,21 @@ a.card:hover
 
 .navItem:hover, .Active 
 {
-  background-color: #555555;
+  border-bottom: 5px solid #c5265b;
   cursor: pointer;
 }
 
 .navItem:hover .navLink, .Active .navLink
 {
   opacity: 1;
-  color: white;
+  color: #c5265b;
 }
 
-.dropdown { margin-top: 8px; }
+.dropdown 
+{ 
+  margin-top: 8px; 
+}
+
 
 #navbarDropdownMenuLink-4 { font-size: 18px; }
 
