@@ -115,6 +115,7 @@ footer p {
 .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
 }
+
 @keyframes lds-ring {
   0% {
     transform: rotate(0deg);
@@ -151,9 +152,7 @@ a.card:hover
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.checked {
-  color: orange;
-}
+/* --- Diseño de la barra de navegacion --- */
 
 .navLink
 {
@@ -194,95 +193,62 @@ a.card:hover
   color: #c5265b;
 }
 
+/* --- Diseño del dropdown menu de la barra de navegacion ---*/
+
 .dropdown 
 { 
-  margin-top: 8px; 
+  margin-top: 8px;
+  margin-right: 20px; 
 }
 
-
-#navbarDropdownMenuLink-4 { font-size: 18px; }
-
-#carousel{ 
-  max-width: 600px;
-  min-width: 600px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+#navbarDropdownMenuLink-4
+{ 
+  font-size: 18px;
 }
 
-.price-and-name
+/* .dropdown-menu
 {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  margin-left: 1rem;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 42px;
+} */
+
+/* Animaciones */
+
+/* @media (min-width: 992px) {
+  .animate {
+    animation-duration: 0.3s;
+    -webkit-animation-duration: 0.3s;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+  }
 }
 
-.product-section
-{
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding-top: 10px;
-  border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+@keyframes slideIn {
+  0% {
+    transform: translateY(-2rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
 }
 
-.checked{ color: orange;}
-
-#textComentario
-{
-  border: 2px solid #0087F7;
+@-webkit-keyframes slideIn {
+  0% {
+    -webkit-transform: transform;
+    -webkit-opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    -webkit-opacity: 1;
+  }
+  0% {
+    -webkit-transform: translateY(1rem);
+    -webkit-opacity: 0;
+  }
 }
 
-#noPuntuo
-{
-  display: none;
-  color: red; 
-  margin-top: 15px; 
-}
-
-#noJustifico
-{
-  display: none;
-  color: red; 
-  margin-top: 15px; 
-  margin-left: 10px; 
-}
-
-.rating {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    align-items: center;
-    width: 500px;
-}
-
-.rating>input {
-    display: none
-}
-
-.rating>label {
-    position: relative;
-    width: 1em;
-    font-size: 50px;
-    color: #FFD600;
-    cursor: pointer
-}
-
-.rating>label::before {
-    content: "\2605";
-    position: absolute;
-    opacity: 0
-}
-
-.rating>label:hover:before,
-.rating>label:hover~label:before {
-    opacity: 1 !important
-}
-
-.rating>input:checked~label:before {
-    opacity: 1
-}
-
-.rating:hover>input:checked~label:before {
-    opacity: 0.4;
-}
+.slideIn {
+  -webkit-animation-name: slideIn;
+  animation-name: slideIn;
+} */

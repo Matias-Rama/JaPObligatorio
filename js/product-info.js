@@ -35,8 +35,6 @@ function showComments(comments)
       }
    });
    
-   // Actualizamos la valoracion promedio del producto.
-   // document.getElementById("averageRaiting").innerHTML = `${raitingSum/comments.length}`;
 }
 
 // ***** Publicar un comentario acerca del producto. *****
