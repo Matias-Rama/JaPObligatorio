@@ -69,7 +69,12 @@
         <div class="row justify-content-end" style="margin-bottom: 5px;">
           <div class="row container p-0 m-0" style="display: flex;" style="flex-direction: row;" style="justify-content: space-between;">
             <div class="col" style="display: flex;" style="flex-direction: row;">
-              <input type="text" id="search" class="inText form-control" autocomplete="off" placeholder="Search" style="width: 250px;">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                </div>
+                <input type="text" id="search" class="inText form-control" autocomplete="off" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
             </div>
             <div class="col justify-content-end" style="display: flex;" style="flex-direction: row;">
               <div style="margin-right: 10px;">
@@ -90,7 +95,9 @@
         </div>
         
         <div class="row">
-          <div class="list-group" id="cat-list-container"></div>
+          <div class="list-group" id="cat-list-container">
+            <!-- Aca van los productos -->
+          </div>
         </div>
       </div>
     </main>

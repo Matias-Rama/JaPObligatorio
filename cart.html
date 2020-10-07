@@ -12,26 +12,10 @@
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/cart.css">
   <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
 </head>
 
@@ -63,14 +47,99 @@
     </div>
   </nav>
 
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main">
+    <div class="text-center pb-4">
+      <br><h2>Carrito de compras</h2>
     </div>
-  </div>
+
+    <div class="container">
+      <div class="row">
+        <p class="lead">Articulos a comprar.</p>
+        <!-- Tabla de articulos a comprar -->
+        <table class="table table-hover text-center" id="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Imagen</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Costo</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="table_body">
+            <!-- Aca van los elementos del carrito -->
+          </tbody>
+        </table>
+      </div><!-- row --> <br><br>
+      <div class="row">
+        <div class="flex-column">
+          <!-- Seleccion de envio -->
+          <p class="lead">Tipos de envíos</p>
+          <div class="flex-column">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="radio_envio" id="premium" value="5" checked>
+              <label class="form-check-label" for="premium">
+                Premium 2 a 5 dias (5%)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="radio_envio" id="express" value="2.5">
+              <label class="form-check-label" for="express">
+                Express 5 a 8 dias (2.5%)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="radio_envio" id="standard" value="1">
+              <label class="form-check-label" for="standard">
+                Standard 12 a 15 dias (1%)
+              </label>
+            </div>
+          </div>
+        </div> <br><br>
+      </div><!-- row --> <br><br>
+      <div class="row flex-column">
+        <p class="lead">Direccion de envío</p>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Calle" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Numero" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Esquina" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+      </div><!-- row --> <br><br> 
+      <div class="row flex-column">
+        <p>Costos</p>
+        <div class="list-group">
+          <div class="list-group-item">
+            <p class="costs">
+              <strong>Subtotal</strong>
+              <Span>$ <span id="subtotal"></span></Span>
+            </p>
+            <p class="text-muted">Costo unitario del producto por unidad</p>
+          </div>
+          <div class="list-group-item">
+            <p class="costs">
+              <strong>Costo de envio</strong>
+              <Span>$ <span id="costo_envio"></span></Span>
+            </p>
+            <p class="text-muted">Segun el tipo de envio</p>
+          </div>
+          <div class="list-group-item">
+            <p class="costs">
+              <strong>Total($)</strong>
+              <Span>$ <span id="total"></span></Span>
+            </p>
+          </div>
+        </div>
+      </div><!-- row -->
+    </div><!-- container -->
+  </main>
+
+  <br><br><br>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -79,6 +148,16 @@
       <div></div>
     </div>
   </div>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
 
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
