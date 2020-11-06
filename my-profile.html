@@ -30,6 +30,7 @@
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/my-profile.css">
   <link href="css/dropzone.css" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
 </head>
@@ -62,14 +63,69 @@
     </div>
   </nav>
 
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main">
+
+    <br>
+
+    <div class="container list-group-item">
+      <div class="col">
+        <!-- Imagen -->
+        <img id="imgPerfilElement" src="" alt="img Perfil" class="img-fluid img-thumbnail">
+        
+        <!-- Nombre -->
+        <div class="input-group mb-3 input-div">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Nombre</i></span>
+          </div>
+          <input type="text" class="form-control" id="nombre">
+        </div>
+        
+        <!-- Apellido -->
+        <div class="input-group mb-3 input-div">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Apellido</i></span>
+          </div>
+          <input type="text" class="form-control" id="apellido">
+        </div>
+
+        <!-- Correo -->
+        <div class="input-group mb-3 input-div">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-at"></i></span>
+          </div>
+          <input type="email" id="correo" class="inText form-control" placeholder="Correo" aria-label="Username" aria-describedby="basic-addon1">
+        </div> 
+        
+        <!-- Edad -->
+        <div class="input-group mb-3 input-div">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Edad</i></span>
+          </div>
+          <input type="number" class="form-control" id="edad">
+        </div> 
+
+        <!-- Telefono -->
+        <div class="input-group mb-3 input-div">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Telefono</i></span>
+          </div>
+          <input type="number" class="form-control" id="telefono">
+        </div>
+
+        <button type="button" class="btn btn-primary" id="guardarCambios" disabled> Guardar cambios </button>
+      
+      </div>  
     </div>
-  </div>
+
+  </main>
+
+  <!-- Alerta de confirmacion -->
+  <div id="alert" class="alert alert-success alert-dismissible fade show sticky-top" role="alert" style="display: none;">
+    <span>Registro realizado con exito!</span>
+    <button type="button" class="close" onclick="document.getElementById('alert').style.display='none';">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div> 
 
   <footer class="text-muted bg-light">
     <div class="container">

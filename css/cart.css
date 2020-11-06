@@ -13,3 +13,30 @@ span
 {
    font-size: 20px;
 }
+
+button
+{
+   max-width: 250px;
+   margin-top: 10px;
+}
+
+.modal-body
+{
+   display: flex;
+   flex-direction: column;
+}
+
+input[type=text]:not([name=first]), input[type=date]
+{
+   margin-top: 10px;
+}
+
+input.direccion
+{
+   margin-left: 60px;
+}
+
+.alert
+{
+   display: none;
+}

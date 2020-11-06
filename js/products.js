@@ -81,20 +81,18 @@ function showProductsList(array){
          (terminosBusqueda == undefined || nombreAuto.includes(terminosBusqueda))){
          
          document.getElementById("cat-list-container").innerHTML += `
-         <div class="list-group-item list-group-item-action shadow">
-            <div class="row">
-               <div class="col-3">
-                  <img src="${product.imgSrc}" alt="${product.description}" class="img-thumbnail">
+         <div class="col-md-4 d-flex align-items-stretch">
+            <a class="card custom-card mb-4" href="product-info.html">
+               <img class="card-img-top" src="${product.imgSrc}" alt="${product.description}">
+               <div class="card-body" style="max-height: 100%;">
+                  <h4 class="card-title pb-4"> <strong>${product.name}</strong> </h4>
+                  <p class="lead"><em>${product.currency} ${product.cost.toLocaleString()}</em></p>
+                  <p class="card-text">${product.description}</p>
                </div>
-               <div class="col">
-                  <div class="d-flex w-100 justify-content-between">
-                     <h4 class="pb-4"> <strong>${product.name}</strong> </h4>
-                     <small class="text-muted">${product.soldCount} artículos</small>
-                  </div>
-                  <p class="lead"><em> ${product.currency} ${product.cost} </em></p>
-                  <p class="lead"> ${product.description} </p>
+               <div class="card-footer text-center">
+                  <small class="text-muted">${product.soldCount} vendidos</small>
                </div>
-            </div>
+            </a>
          </div>`;
       }   
    }
@@ -180,11 +178,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
          terminosBusqueda = undefined;
 
       showProductsList(currentProductsArray);
-   });
-
-   document.getElementById("cat-list-container").addEventListener("click", function()
-   {
-      window.location.assign("product-info.html");
    });
 
 });

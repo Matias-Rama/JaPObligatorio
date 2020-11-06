@@ -130,13 +130,13 @@ function showProductImages(productImages)
       {
          imagesContainer.innerHTML += `
             <div class="carousel-item active">
-               <img class="d-block w-100" src="${productImages[0]}" alt="First slide">
+               <img class="d-block w-100" src="${productImages[0]}" alt="First slide" style="max-width:100%;height:auto;">
             </div>`;
          continue;
       }
       imagesContainer.innerHTML += `
          <div class="carousel-item">
-            <img class="d-block w-100" src="${productImages[i]}" alt="Second slide">
+            <img class="d-block w-100" src="${productImages[i]}" alt="Second slide" style="max-width:100%;height:auto;">
          </div>`;
    }
 }
